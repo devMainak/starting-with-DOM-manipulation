@@ -18,6 +18,12 @@
   <button id="validateEmailButton">Validate Email</button>
   <p id="emailValidationResult"></p>
 
+
+  <label for="numberInput">Enter a number</label>
+  <input type="number" id="numberInput"/>
+  <button id="calculateSquareButton">Calculate Square</button>
+  <p id="calculateSquareResult"></p>
+
   <script>
     //get the dom elements
     const nameInput = document.getElementById("nameInput");
@@ -30,7 +36,7 @@
       greetingMessage.textContent = `Hello, ${userName}!`;
     });
 
-
+    //Validating email
     const emailInput = document.getElementById("emailInput");
     const validateEmailButton = document.getElementById("validateEmailButton");
     const emailValidationResult = document.getElementById("emailValidationResult");
@@ -48,6 +54,17 @@
       {
         emailValidationResult.textContent = "Invalid email address";
       }
+    });
+
+    //Calculating square of the user input num
+    const numberInput = document.getElementById("numberInput");
+    const calculateSquareButton = document.getElementById("calculateSquareButton");
+    const calculateSquareResult = document.getElementById("calculateSquareResult");
+
+    calculateSquareButton.addEventListener("click", function(){
+      const number = numberInput.value;
+      const square = number * number;
+      calculateSquareResult.textContent = `The square of ${number} is: ${square}`;
     });
 
 
