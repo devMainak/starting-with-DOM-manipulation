@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+</head>
+
+<body>
+  <label for="nameInput">Enter your name:</label>
+  <input id="nameInput" type="text" />
+  <button id="greetButton">Greet</button>
+  <p id="showGreetingMessage"></p>
+
+  <label for="emailInput">Enter your email:</label>
+  <input id="emailInput" type="email"/>
+  <button id="validateEmailButton">Validate Email</button>
+  <p id="emailValidationResult"></p>
+
+  <script>
+    //get the dom elements
+    const nameInput = document.getElementById("nameInput");
+    const greetButton = document.getElementById("greetButton");
+    const greetingMessage = document.getElementById("showGreetingMessage");
+
+    //what you want to do with the dom elements
+    greetButton.addEventListener("click", function(){
+      const userName = nameInput.value;
+      greetingMessage.textContent = `Hello, ${userName}!`;
+    });
+
+
+    const emailInput = document.getElementById("emailInput");
+    const validateEmailButton = document.getElementById("validateEmailButton");
+    const emailValidationResult = document.getElementById("emailValidationResult");
+
+    validateEmailButton.addEventListener("click", function(){
+      const email = emailInput.value;
+      const atIndex = email.indexOf("@");
+      const dotIndex = email.indexOf(".");
+
+      if (atIndex > 0 && dotIndex > atIndex)
+      {
+        emailValidationResult.textContent = "Valid email address";
+      }
+      else
+      {
+        emailValidationResult.textContent = "Invalid email address";
+      }
+    });
+
+
+  </script>
+
+</body>
+
+</html>
