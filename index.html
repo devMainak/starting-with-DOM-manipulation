@@ -14,15 +14,25 @@
   <p id="showGreetingMessage"></p>
 
   <label for="emailInput">Enter your email:</label>
-  <input id="emailInput" type="email"/>
+  <input id="emailInput" type="email" />
   <button id="validateEmailButton">Validate Email</button>
   <p id="emailValidationResult"></p>
 
 
   <label for="numberInput">Enter a number</label>
-  <input type="number" id="numberInput"/>
+  <input type="number" id="numberInput" />
   <button id="calculateSquareButton">Calculate Square</button>
   <p id="calculateSquareResult"></p>
+
+  <label for="urlInput">Enter a URL:</label>
+  <input id="urlInput" type="text" />
+  <button id="urlButton">Show Link</button>
+  <p id="linkResult"></p>
+
+  <label for="sentenceInput">Enter a Sentence:</label>
+  <input id="sentenceInput" type="text" />
+  <button id="countButton">Count Words</button>
+  <p id="countResult"></p>
 
   <script>
     //get the dom elements
@@ -31,7 +41,7 @@
     const greetingMessage = document.getElementById("showGreetingMessage");
 
     //what you want to do with the dom elements
-    greetButton.addEventListener("click", function(){
+    greetButton.addEventListener("click", function () {
       const userName = nameInput.value;
       greetingMessage.textContent = `Hello, ${userName}!`;
     });
@@ -41,17 +51,15 @@
     const validateEmailButton = document.getElementById("validateEmailButton");
     const emailValidationResult = document.getElementById("emailValidationResult");
 
-    validateEmailButton.addEventListener("click", function(){
+    validateEmailButton.addEventListener("click", function () {
       const email = emailInput.value;
       const atIndex = email.indexOf("@");
       const dotIndex = email.indexOf(".");
 
-      if (atIndex > 0 && dotIndex > atIndex)
-      {
+      if (atIndex > 0 && dotIndex > atIndex) {
         emailValidationResult.textContent = "Valid email address";
       }
-      else
-      {
+      else {
         emailValidationResult.textContent = "Invalid email address";
       }
     });
@@ -61,12 +69,35 @@
     const calculateSquareButton = document.getElementById("calculateSquareButton");
     const calculateSquareResult = document.getElementById("calculateSquareResult");
 
-    calculateSquareButton.addEventListener("click", function(){
+    calculateSquareButton.addEventListener("click", function () {
       const number = numberInput.value;
       const square = number * number;
       calculateSquareResult.textContent = `The square of ${number} is: ${square}`;
     });
 
+
+    const urlInput = document.getElementById("urlInput");
+    const urlButton = document.getElementById("urlButton");
+    const linkResult = document.getElementById("linkResult");
+
+    urlButton.addEventListener("click", function () {
+      const url = urlInput.value;
+      linkResult.innerHTML = `<a href=${url} target="_blank">${url}</a>`;
+    });
+
+
+    //Counting words
+    const sentenceInput = document.getElementById("sentenceInput");
+    const countButton = document.getElementById("countButton");
+    const countResult = document.getElementById("countResult");
+
+    countButton.addEventListener("click", function () {
+      const sentence = sentenceInput.value;
+      const words = sentence.split(" ");
+      const wordCount = words.length;
+      countResult.textContent = `Word Count: ${wordCount}`;
+
+    });
 
   </script>
 
